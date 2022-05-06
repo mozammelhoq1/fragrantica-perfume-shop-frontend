@@ -2,6 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+### created by
+
+- firebase
+- react-router version-6
+
+* font awesome
+
 ## Available Scripts
 
 In the project directory, you can run:
