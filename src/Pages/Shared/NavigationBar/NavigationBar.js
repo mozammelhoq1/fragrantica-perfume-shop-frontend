@@ -3,12 +3,19 @@ import {
   faCircleArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { signOut } from "firebase/auth";
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import auth from "../../../Firebase.init";
 import logo from "../../../Images/perfume.png";
 
 const NavigationBar = () => {
+  const [user] = useAuthState(auth);
+  const handleLogOut = () => {
+    signOut(auth);
+  };
   return (
     <Navbar
       bg="warning"
@@ -36,17 +43,11 @@ const NavigationBar = () => {
             <Link to="/about" className="btn btn-outline-dark mx-3 my-2">
               ABOUT US
             </Link>
-            <Link
-              to="/login"
-              className="text-decoration-none fw-bold mx-3 my-2  text-dark"
-            >
-              <span className="me-2">LOG IN</span>
-              <FontAwesomeIcon icon={faCircleArrowLeft}></FontAwesomeIcon>
-            </Link>
-            {/* {user ? (
+
+            {user ? (
               <Link
                 to="/login"
-                onClick={handleSignOut}
+                onClick={handleLogOut}
                 className="text-decoration-none fw-bold mx-3 my-2  text-dark"
               >
                 <span className="me-2">LOG Out</span>
@@ -60,7 +61,7 @@ const NavigationBar = () => {
                 <span className="me-2">LOG IN</span>
                 <FontAwesomeIcon icon={faCircleArrowLeft}></FontAwesomeIcon>
               </Link>
-            )} */}
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -1,18 +1,40 @@
 import React, { useRef } from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import auth from "../../../Firebase.init";
 import loginImg from "../../../Images/login.jpg";
+import Loading from "../../Shared/Loading/Loading";
 const Login = () => {
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const navigate = useNavigate();
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
   let errorElement;
 
-  const handleSubmit = (e) => {
+  if (error) {
+    errorElement = (
+      <Alert variant="danger">{error?.message} —check it out!</Alert>
+    );
+  }
+  if (loading || sending) {
+    return <Loading />;
+  }
+  if (user) {
+    navigate(from, { replace: true });
+  }
+  const handleLogin = (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    console.log(email, password);
+    signInWithEmailAndPassword(email, password);
   };
   const navigateRegister = (e) => {
     navigate("/register");
@@ -26,7 +48,7 @@ const Login = () => {
         </Col>
         <Col xs={12} sm={12} md={6}>
           <h1 className="text-center">Please Login</h1>
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleLogin}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control

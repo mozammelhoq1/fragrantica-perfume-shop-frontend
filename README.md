@@ -6,10 +6,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - firebase
 - react-router version-6
-
-* font awesome
-* react bootstrap
-* react slick
+- font awesome
+- react bootstrap
+- react slick
+- react firebase hook
+- spinners react
 
 ## Available Scripts
 

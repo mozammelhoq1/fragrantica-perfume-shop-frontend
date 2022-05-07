@@ -1,17 +1,24 @@
 import React, { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
+import auth from "../../../Firebase.init";
 import registerImg from "../../../Images/register.jpg";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 const Register = () => {
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
   const [agree, setAgree] = useState(false);
   const navigate = useNavigate();
+  if (user) {
+    navigate("/home");
+  }
   const handleRegister = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
     const agree = e.target.terms.checked;
-    console.log(name, email, password, agree);
+    createUserWithEmailAndPassword(email, password);
   };
   const navigateLogin = () => {
     navigate("/login");

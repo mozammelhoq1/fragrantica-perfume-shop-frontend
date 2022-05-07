@@ -13,6 +13,14 @@ const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_messagingSenderId,
   appId: process.env.REACT_APP_appId,
 };
+// const firebaseConfig = {
+//   apiKey: "AIzaSyA4m7bIjM3x4A1M3b1doBMwrp6C89KaM70",
+//   authDomain: "fragrantica-1.firebaseapp.com",
+//   projectId: "fragrantica-1",
+//   storageBucket: "fragrantica-1.appspot.com",
+//   messagingSenderId: "662157698973",
+//   appId: "1:662157698973:web:c37afd501200e1c81c7174",
+// };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

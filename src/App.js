@@ -9,6 +9,7 @@ import NotFound from "./Pages/NotFound/NotFound";
 import ManageProduct from "./Pages/Manage/ManageProduct/ManageProduct";
 import Login from "./Pages/Authentication/Login/Login";
 import Register from "./Pages/Authentication/Register/Register";
+import RequireAuth from "./Pages/Authentication/RequireAuth/RequireAuth";
 
 function App() {
   return (
@@ -19,7 +20,14 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/about" element={<About />} />
-        <Route path="/product/:productId" element={<ManageProduct />} />
+        <Route
+          path="/product/:productId"
+          element={
+            <RequireAuth>
+              <ManageProduct />
+            </RequireAuth>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
