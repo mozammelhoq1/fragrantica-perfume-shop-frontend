@@ -11,6 +11,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - react slick
 - react firebase hook
 - spinners react
+- react hot toast
 
 ## Available Scripts
 

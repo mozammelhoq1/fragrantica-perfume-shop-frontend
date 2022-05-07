@@ -1,27 +1,40 @@
 import React, { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../Firebase.init";
 import registerImg from "../../../Images/register.jpg";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
+import SocialLogin from "../SocialLogin/SocialLogin";
+import Loading from "../../Shared/Loading/Loading";
 const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
   const [agree, setAgree] = useState(false);
   const navigate = useNavigate();
-  if (user) {
-    navigate("/home");
-  }
-  const handleRegister = (e) => {
-    e.preventDefault();
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    const agree = e.target.terms.checked;
-    createUserWithEmailAndPassword(email, password);
-  };
+
   const navigateLogin = () => {
     navigate("/login");
+  };
+  if (loading || updating) {
+    return <Loading />;
+  }
+
+  const handleRegister = async (event) => {
+    event.preventDefault();
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    const agree = event.target.terms.checked;
+    if (agree) {
+      await createUserWithEmailAndPassword(email, password);
+      await updateProfile({ displayName: name });
+      navigate("/home");
+    }
   };
   return (
     <Container className="mt-5">
@@ -94,6 +107,7 @@ const Register = () => {
               Please Login
             </Link>
           </p>
+          <SocialLogin />
         </Col>
       </Row>
     </Container>
