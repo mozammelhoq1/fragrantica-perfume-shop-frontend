@@ -8,6 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - react-router version-6
 
 * font awesome
+* react bootstrap
 
 ## Available Scripts
 

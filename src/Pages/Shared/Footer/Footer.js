@@ -13,7 +13,7 @@ const Footer = () => {
   const today = new Date();
   const year = today.getFullYear();
   return (
-    <Row className="mx-auto bg-warning g-5">
+    <Row className="mx-auto bg-warning g-5 mt-5">
       <Col xs={12} md={4} className="text-start fw-normal">
         <span className="text-secondary fs-5 fw-bold ">FRAGRANTICA</span>
 

@@ -1,20 +1,23 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Footer from "./Pages/Shared/Footer/Footer";
 import NavigationBar from "./Pages/Shared/NavigationBar/NavigationBar";
 import { Route, Routes } from "react-router-dom";
-import Home from "./Pages/HomePage/Home";
+import About from "./Pages/About/About";
+import Blogs from "./Pages/Blogs/Blogs";
+import Home from "./Pages/HomePage/Home/Home";
 
 function App() {
   return (
-    <div>
+    <>
       <NavigationBar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/about" element={<About />} />
       </Routes>
-      {/* <NavigationBar /> */}
       <Footer />
-    </div>
+    </>
   );
 }
 
