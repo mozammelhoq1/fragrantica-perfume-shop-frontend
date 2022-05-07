@@ -2,9 +2,14 @@ import { faSliders } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Button, Card, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const Product = ({ product }) => {
   const { id, name, img, description, price, quantity, supplier } = product;
+  const navigate = useNavigate();
+  const handleNavigate = (id) => {
+    navigate(`/product/${id}`);
+  };
   return (
     <Col>
       <Card className=" h-100 border-0 shadow rounded-3">
@@ -30,6 +35,7 @@ const Product = ({ product }) => {
             <span className="text-muted">learn more ...</span>
           </p>
           <Button
+            onClick={() => handleNavigate(id)}
             variant="light"
             className="btn btn-sm btn-outline-dark mt-auto"
           >

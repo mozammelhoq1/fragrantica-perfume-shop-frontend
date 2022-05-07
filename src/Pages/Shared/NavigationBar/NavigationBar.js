@@ -36,6 +36,13 @@ const NavigationBar = () => {
             <Link to="/about" className="btn btn-outline-dark mx-3 my-2">
               ABOUT US
             </Link>
+            <Link
+              to="/login"
+              className="text-decoration-none fw-bold mx-3 my-2  text-dark"
+            >
+              <span className="me-2">LOG IN</span>
+              <FontAwesomeIcon icon={faCircleArrowLeft}></FontAwesomeIcon>
+            </Link>
             {/* {user ? (
               <Link
                 to="/login"

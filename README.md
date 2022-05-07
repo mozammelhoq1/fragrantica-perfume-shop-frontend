@@ -9,6 +9,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 * font awesome
 * react bootstrap
+* react slick
 
 ## Available Scripts
 

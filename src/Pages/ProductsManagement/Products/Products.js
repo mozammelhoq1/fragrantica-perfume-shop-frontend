@@ -10,9 +10,9 @@ const Products = () => {
       .then((data) => setProducts(data));
   }, []);
   return (
-    <Container>
+    <Container className="mt-5">
       <Row xs={1} md={2} lg={3} xl={4} className="g-4">
-        {products.map((product) => (
+        {products.slice(0, 6).map((product) => (
           <Product key={product.id} product={product}></Product>
         ))}
       </Row>
