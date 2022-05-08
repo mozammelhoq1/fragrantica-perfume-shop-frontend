@@ -5,7 +5,7 @@ import { Button, Card, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const Product = ({ product }) => {
-  const { id, name, img, description, price, quantity, supplier } = product;
+  const { _id, name, img, description, price, quantity, supplier } = product;
   const navigate = useNavigate();
   const handleNavigate = (id) => {
     navigate(`/product/${id}`);
@@ -35,7 +35,7 @@ const Product = ({ product }) => {
             <span className="text-muted">learn more ...</span>
           </p>
           <Button
-            onClick={() => handleNavigate(id)}
+            onClick={() => handleNavigate(_id)}
             variant="light"
             className="btn btn-sm btn-outline-dark mt-auto"
           >
