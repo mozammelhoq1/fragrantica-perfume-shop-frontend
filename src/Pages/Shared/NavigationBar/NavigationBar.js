@@ -37,6 +37,13 @@ const NavigationBar = () => {
             <Link to="/home" className="btn btn-outline-dark mx-3 my-2">
               HOME
             </Link>
+            {user ? (
+              <Link to="/inventory" className="btn btn-outline-dark mx-3 my-2">
+                Inventory
+              </Link>
+            ) : (
+              ""
+            )}
             <Link to="/blogs" className="btn btn-outline-dark mx-3 my-2">
               BLOGS
             </Link>

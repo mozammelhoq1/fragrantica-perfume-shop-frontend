@@ -21,7 +21,7 @@ const RequireAuth = ({ children }) => {
   if (!user) {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
-  if (!user.emailVerified) {
+  if (user.providerData[0].providerId === "password" && !user.emailVerified) {
     return (
       <Container className="w-75 mt-5">
         <Alert variant="danger">
