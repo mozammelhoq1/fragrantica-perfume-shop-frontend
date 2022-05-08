@@ -6,8 +6,30 @@ import auth from "../../../Firebase.init";
 
 const AddProduct = () => {
   const [user] = useAuthState(auth);
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const product = {
+      email: user?.email,
+      name: e.target.name.value,
+      img: e.target.img.value,
+      price: e.target.price.value,
+      description: e.target.description.value,
+      quantity: e.target.quantity.value,
+      supplier: e.target.supplier.value,
+    };
+    const url = `http://localhost:5000/products`;
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(product),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
   //   const handlePlaceOrder = (e) => {
   //     e.preventDefault();
   //     const order = {
@@ -36,47 +58,43 @@ const AddProduct = () => {
         <input type="text" {...register("supplier", { required: true })} />
         <input type="submit" />
       </form> */}
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Control
-            type="text"
-            placeholder="Name"
-            {...register("name", { required: true })}
-          />
+          <Form.Control type="text" placeholder="Name" required name="name" />
         </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Control
             type="text"
             placeholder="Photo URL"
-            {...register("img", { required: true })}
+            required
+            name="img"
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Control
             type="number"
             placeholder="Price"
-            {...register("price", { required: true })}
+            required
+            name="price"
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-          <Form.Control
-            as="textarea"
-            rows={3}
-            {...register("description", { required: true })}
-          />
+          <Form.Control as="textarea" rows={3} required name="description" />
         </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Control
             type="number"
             placeholder="Quantity"
-            {...register("quantity", { required: true })}
+            required
+            name="quantity"
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Control
             type="text"
             placeholder="Supplier Name"
-            {...register("supplier", { required: true })}
+            required
+            name="supplier"
           />
         </Form.Group>
         <Button

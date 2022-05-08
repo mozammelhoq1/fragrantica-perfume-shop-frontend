@@ -12,7 +12,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - react firebase hook
 - spinners react
 - react hot toast
-- react hook form
 
 ## Available Scripts
 
