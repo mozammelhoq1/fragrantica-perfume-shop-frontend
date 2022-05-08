@@ -1,9 +1,11 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import PageTitle from "../Shared/PageTitle/PageTitle";
 
 const About = () => {
   return (
     <Container>
+      <PageTitle title="About" />
       <h1>Fragrantica Team</h1>
       <p>Fragrantica Team</p>
       <p>

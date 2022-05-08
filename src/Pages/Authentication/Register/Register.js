@@ -9,6 +9,7 @@ import {
 } from "react-firebase-hooks/auth";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import Loading from "../../Shared/Loading/Loading";
+import PageTitle from "../../Shared/PageTitle/PageTitle";
 const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
@@ -38,6 +39,7 @@ const Register = () => {
   };
   return (
     <Container className="mt-5">
+      <PageTitle title="Register" />
       <Row className="g-5 mx-auto pb-5 align-items-center justify-content-center">
         <Col xs={12} sm={12} md={6}>
           <img className="w-100 rounded-3" src={registerImg} alt="" />

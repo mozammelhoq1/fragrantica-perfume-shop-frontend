@@ -9,6 +9,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../Firebase.init";
 import loginImg from "../../../Images/login.jpg";
 import Loading from "../../Shared/Loading/Loading";
+import PageTitle from "../../Shared/PageTitle/PageTitle";
 import SocialLogin from "../SocialLogin/SocialLogin";
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
@@ -68,6 +69,7 @@ const Login = () => {
   return (
     <>
       <Container className="mt-5">
+        <PageTitle title="Login" />
         <Row className="g-5 mx-auto pb-5 align-items-center justify-content-center">
           <Col xs={12} sm={12} md={6}>
             <img className="w-100 rounded-3" src={loginImg} alt="" />

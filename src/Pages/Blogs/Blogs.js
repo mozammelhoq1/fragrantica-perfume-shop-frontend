@@ -1,9 +1,11 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import PageTitle from "../Shared/PageTitle/PageTitle";
 
 const Blogs = () => {
   return (
     <Container>
+      <PageTitle title="Blogs" />
       <h3>Difference between javascript and nodejs</h3>
       <ul>
         <li>
