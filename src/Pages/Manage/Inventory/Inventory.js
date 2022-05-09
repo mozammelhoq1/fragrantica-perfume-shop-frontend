@@ -44,7 +44,7 @@ const Inventory = () => {
       </div> */}
       <Table variant="light" striped bordered hover responsive>
         <thead>
-          <tr>
+          <tr className="text-center">
             {Array.from({ length: 1 }).map((_, index) => (
               <th key={index}>Image</th>
             ))}
@@ -64,9 +64,12 @@ const Inventory = () => {
             {Array.from({ length: 1 }).map((_, index) => (
               <th key={index}>Supplier</th>
             ))}
+            {Array.from({ length: 1 }).map((_, index) => (
+              <th key={index}>Edit</th>
+            ))}
 
             {Array.from({ length: 1 }).map((_, index) => (
-              <th key={index}>Delete</th>
+              <th key={index}>Action</th>
             ))}
           </tr>
         </thead>
@@ -102,6 +105,16 @@ const Inventory = () => {
                   <Button
                     onClick={() => handleDelete(product._id)}
                     className="border-0 p-0"
+                  >
+                    <FontAwesomeIcon icon={faTrashAlt} />
+                  </Button>
+                </td>
+              ))}
+              {Array.from({ length: 1 }).map((_, index) => (
+                <td key={index}>
+                  <Button
+                    onClick={() => handleDelete(product._id)}
+                    className="border-0 p-0 bg-dark"
                   >
                     <FontAwesomeIcon icon={faTrashAlt} />
                   </Button>

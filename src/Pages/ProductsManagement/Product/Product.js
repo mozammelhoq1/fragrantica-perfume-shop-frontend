@@ -23,7 +23,7 @@ const Product = ({ product }) => {
           </h6>
           <h6>
             Quantity :{" "}
-            {quantity <= 0 ? (
+            {quantity === 0 ? (
               <span className="text-danger fw-bold">sold out</span>
             ) : (
               quantity

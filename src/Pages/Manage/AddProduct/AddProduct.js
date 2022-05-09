@@ -12,9 +12,9 @@ const AddProduct = () => {
       email: user?.email,
       name: e.target.name.value,
       img: e.target.img.value,
-      price: e.target.price.value,
+      price: parseInt(e.target.price.value),
       description: e.target.description.value,
-      quantity: e.target.quantity.value,
+      quantity: parseInt(e.target.quantity.value),
       supplier: e.target.supplier.value,
     };
     const url = `http://localhost:5000/products`;
@@ -27,6 +27,8 @@ const AddProduct = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        alert("Added Product Successfully");
+        e.target.reset();
         console.log(data);
       });
   };
