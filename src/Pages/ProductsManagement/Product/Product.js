@@ -1,15 +1,20 @@
 import { faSliders } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 import { Button, Card, Col } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
+import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import auth from "../../../Firebase.init";
 
 const Product = ({ product }) => {
+  const [user] = useAuthState(auth);
   const { _id, name, img, description, price, quantity, supplier } = product;
   const navigate = useNavigate();
   const handleNavigate = (id) => {
     navigate(`/product/${id}`);
   };
+
   return (
     <Col>
       <Card className=" h-100 border-0 shadow rounded-3">
@@ -34,6 +39,7 @@ const Product = ({ product }) => {
             {description.slice(0, 150)}{" "}
             <span className="text-muted">learn more ...</span>
           </p>
+
           <Button
             onClick={() => handleNavigate(_id)}
             variant="light"
@@ -45,6 +51,7 @@ const Product = ({ product }) => {
           </Button>
         </Card.Body>
       </Card>
+      <Toaster />
     </Col>
   );
 };
