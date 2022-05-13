@@ -12,7 +12,6 @@ import Register from "./Pages/Authentication/Register/Register";
 import RequireAuth from "./Pages/Authentication/RequireAuth/RequireAuth";
 import Inventory from "./Pages/Manage/Inventory/Inventory";
 import AddProduct from "./Pages/Manage/AddProduct/AddProduct";
-import AllProducts from "./Pages/ProductsManagement/AllProducts/AllProducts";
 
 function App() {
   return (
@@ -23,7 +22,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/about" element={<About />} />
-        <Route path="/allproduct" element={<AllProducts />} />
+
         <Route
           path="/product/:productId"
           element={

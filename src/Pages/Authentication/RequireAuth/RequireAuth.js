@@ -33,7 +33,7 @@ const RequireAuth = ({ children }) => {
                 size={80}
                 thickness={180}
                 speed={81}
-                color="#36ad47"
+                color="000000"
               />
             </span>
           </p>

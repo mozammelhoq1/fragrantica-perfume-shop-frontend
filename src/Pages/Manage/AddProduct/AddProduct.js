@@ -1,7 +1,6 @@
 import React from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useForm } from "react-hook-form";
 import auth from "../../../Firebase.init";
 
 const AddProduct = () => {
@@ -32,34 +31,9 @@ const AddProduct = () => {
         console.log(data);
       });
   };
-  //   const handlePlaceOrder = (e) => {
-  //     e.preventDefault();
-  //     const order = {
-  //       email: user.email,
-  //       service: service.name,
-  //       serviceId: serviceId,
-  //       address: e.target.address.value,
-  //       phone: e.target.phone.value,
-  //     };
-  //     axios.post("http://localhost:5000/order", order).then((response) => {
-  //       const { data } = response;
-  //       if (data.insertedId) {
-  //         toast("thank you for your order");
-  //         e.target.reset();
-  //       }
-  //     });
-  //   };
   return (
     <Container className="mt-5 w-75">
       <h1 className="text-center">Please Add A Product</h1>
-      {/* <form className="d-flex flex-column" onSubmit={handleSubmit(onSubmit)}>
-        <input type="text" {...register("name", { required: true })} />
-        <input type="number" {...register("price", { required: true })} />
-        <input type="text" {...register("description", { required: true })} />
-        <input type="number" {...register("quantity", { required: true })} />
-        <input type="text" {...register("supplier", { required: true })} />
-        <input type="submit" />
-      </form> */}
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Control type="text" placeholder="Name" required name="name" />
