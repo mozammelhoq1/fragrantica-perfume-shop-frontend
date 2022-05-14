@@ -1,14 +1,12 @@
 import { faSliders } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React from "react";
 import { Button, Card, Col } from "react-bootstrap";
-import { useAuthState } from "react-firebase-hooks/auth";
-import toast, { Toaster } from "react-hot-toast";
+
+import { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import auth from "../../../Firebase.init";
 
 const Product = ({ product }) => {
-  const [user] = useAuthState(auth);
   const { _id, name, img, description, price, quantity, supplier } = product;
   const navigate = useNavigate();
   const handleNavigate = (id) => {

@@ -4,7 +4,7 @@ import PageTitle from "../Shared/PageTitle/PageTitle";
 
 const Blogs = () => {
   return (
-    <Container>
+    <Container className="my-5">
       <PageTitle title="Blogs" />
       <h3>Difference between javascript and nodejs</h3>
       <ul>

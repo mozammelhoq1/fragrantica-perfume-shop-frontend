@@ -5,7 +5,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { signOut } from "firebase/auth";
 import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../../Firebase.init";
@@ -37,13 +37,44 @@ const NavigationBar = () => {
             <Link to="/home" className="btn btn-outline-dark mx-3 my-2">
               HOME
             </Link>
-            {user ? (
-              <Link to="/inventory" className="btn btn-outline-dark mx-3 my-2">
-                Manage
+            <NavDropdown
+              className="btn  border-dark mx-3 my-2 p-0"
+              title="Inventory"
+              id="basic-nav-dropdown"
+            >
+              <Link
+                to="/allproduct"
+                className="btn btn-outline-dark mx-3 my-2 d-flex justify-content-center align-items-center"
+              >
+                All Item
               </Link>
-            ) : (
-              ""
-            )}
+
+              {user ? (
+                <>
+                  <Link
+                    to="/inventory"
+                    className="btn btn-outline-dark mx-3 my-2 d-flex justify-content-center align-items-center"
+                  >
+                    Manage Item
+                  </Link>
+                  <Link
+                    to="/myitem"
+                    className="btn btn-outline-dark mx-3 my-2 d-flex justify-content-center align-items-center"
+                  >
+                    My Item
+                  </Link>
+
+                  <Link
+                    to="/addproduct"
+                    className="btn btn-outline-dark mx-3 my-2 d-flex justify-content-center align-items-center"
+                  >
+                    Add Item
+                  </Link>
+                </>
+              ) : (
+                ""
+              )}
+            </NavDropdown>
 
             <Link to="/blogs" className="btn btn-outline-dark mx-3 my-2">
               BLOGS

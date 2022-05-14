@@ -4,7 +4,7 @@ import PageTitle from "../Shared/PageTitle/PageTitle";
 
 const About = () => {
   return (
-    <Container>
+    <Container className="my-5">
       <PageTitle title="About" />
       <h1>Fragrantica Team</h1>
       <p>Fragrantica Team</p>

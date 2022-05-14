@@ -8,29 +8,22 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../Firebase.init";
 import Product from "../../ProductsManagement/Product/Product";
 import Loading from "../../Shared/Loading/Loading";
+import UseProducts from "../../../hooks/useProducts";
 
 const Inventory = () => {
   // product state
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = UseProducts();
 
-  useEffect(() => {
-    const url = `http://localhost:5000/products`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
   // delete methode
   const handleDelete = (id) => {
     const prcced = window.confirm("are u want to sure?");
     if (prcced) {
       const url = `http://localhost:5000/products/${id}`;
-      console.log(url);
       fetch(url, {
         method: "DELETE",
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           const remaining = products.filter((product) => product._id !== id);
           setProducts(remaining);
         });
