@@ -18,7 +18,7 @@ const Inventory = () => {
   const handleDelete = (id) => {
     const prcced = window.confirm("are u want to sure?");
     if (prcced) {
-      const url = `http://localhost:5000/products/${id}`;
+      const url = `https://arcane-sea-21908.herokuapp.com/products/${id}`;
       fetch(url, {
         method: "DELETE",
       })

@@ -16,7 +16,7 @@ const AddProduct = () => {
       quantity: parseInt(e.target.quantity.value),
       supplier: e.target.supplier.value,
     };
-    const url = `http://localhost:5000/products`;
+    const url = `https://arcane-sea-21908.herokuapp.com/products`;
     fetch(url, {
       method: "POST",
       headers: {

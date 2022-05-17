@@ -13,7 +13,7 @@ const ManageProduct = () => {
   const { name, supplier, quantity, price, description } = product;
 
   useEffect(() => {
-    const url = `http://localhost:5000/products/${productId}`;
+    const url = `https://arcane-sea-21908.herokuapp.com/products/${productId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProduct(data));
@@ -29,7 +29,7 @@ const ManageProduct = () => {
       toast.error("You Cannot Add Negative Number");
       return updateQuantity;
     }
-    const url = `http://localhost:5000/products/${productId}`;
+    const url = `https://arcane-sea-21908.herokuapp.com/products/${productId}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -55,7 +55,7 @@ const ManageProduct = () => {
     if (updateQuantity === 0) {
     }
 
-    const url = `http://localhost:5000/products/${productId}`;
+    const url = `https://arcane-sea-21908.herokuapp.com/products/${productId}`;
     fetch(url, {
       method: "PUT",
       headers: {

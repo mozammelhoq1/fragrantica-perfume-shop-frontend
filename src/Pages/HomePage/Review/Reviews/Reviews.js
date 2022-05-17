@@ -44,7 +44,7 @@ const Reviews = () => {
       rating,
     };
 
-    const url = `http://localhost:5000/reviews`;
+    const url = `https://arcane-sea-21908.herokuapp.com/reviews`;
     fetch(url, {
       method: "POST",
       headers: {
@@ -61,7 +61,7 @@ const Reviews = () => {
       });
   };
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://arcane-sea-21908.herokuapp.com/reviews")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [user, update]);

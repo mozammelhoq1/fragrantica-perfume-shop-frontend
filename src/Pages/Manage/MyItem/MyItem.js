@@ -13,7 +13,7 @@ const MyItem = () => {
   useEffect(() => {
     const getMyItem = async () => {
       const email = user.email;
-      const url = `http://localhost:5000/myitem?email=${email}`;
+      const url = `https://arcane-sea-21908.herokuapp.com/myitem?email=${email}`;
       try {
         await fetch(url, {
           headers: {
