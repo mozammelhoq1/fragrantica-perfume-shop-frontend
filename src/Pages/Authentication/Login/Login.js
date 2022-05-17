@@ -32,13 +32,27 @@ const Login = () => {
     return <Loading />;
   }
   if (user) {
-    navigate(from, { replace: true });
+    // navigate(from, { replace: true });
   }
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(email, password);
+    const url = `http://localhost:5000/login`;
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        event.target.reset();
+        localStorage.setItem("accessToken", data.accessToken);
+      });
+    navigate(from, { replace: true });
   };
   const navigateRegister = (event) => {
     navigate("/register");
