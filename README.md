@@ -25,4 +25,4 @@ learn from each other and relax in the company of your soul mates.
 - MongoDb(for storage)
 - Heroku(for server side deploy)
 
-#### Developed by (MD. Mozammel Hoq)
+#### `Developed by (MD. Mozammel Hoq)`
