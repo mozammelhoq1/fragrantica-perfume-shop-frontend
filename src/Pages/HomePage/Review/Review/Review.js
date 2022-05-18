@@ -1,8 +1,8 @@
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
-import { Card, Col, Container, Row } from "react-bootstrap";
-import Slider from "react-slick/lib/slider";
+import React from "react";
+import { Card } from "react-bootstrap";
+
 import userPic from "../../../../Images/user.png";
 
 const Review = ({ review }) => {
@@ -16,7 +16,9 @@ const Review = ({ review }) => {
       />
       <Card.Body>
         <div>
-          <small className="fw-bold me-3">{name}</small>{" "}
+          <small className="fw-bold me-3">
+            {name ? name : "Unknown User 👽"}
+          </small>{" "}
           <small className="text-warning me-2">
             <FontAwesomeIcon icon={faStar} />
           </small>

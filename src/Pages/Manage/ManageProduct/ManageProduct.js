@@ -1,9 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRepeat, faReply } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faRepeat, faReply } from "@fortawesome/free-solid-svg-icons";
 import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import toast, { Toaster } from "react-hot-toast";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import PageTitle from "../../Shared/PageTitle/PageTitle";
 
 const ManageProduct = () => {
@@ -73,6 +73,12 @@ const ManageProduct = () => {
     <Container className="mt-5">
       <PageTitle title="Single Item" />
       <Toaster />
+      <div className="text-end mb-5">
+        <Link to="/inventory" className="btn btn-outline-dark mx-3 my-2 ">
+          <span className="me-2">Manage All Item</span>{" "}
+          <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
+        </Link>
+      </div>
 
       <Row className="g-5 mx-auto  pb-5 my-5 align-items-center justify-content-center shadow-sm rounded-3 ">
         <Col xs={8} sm={8} md={4}>

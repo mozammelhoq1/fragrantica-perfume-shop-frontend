@@ -1,12 +1,9 @@
 import { faPlusSquare, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from "react";
-import { Button, Container, Row, Table } from "react-bootstrap";
-import toast from "react-hot-toast";
+import React from "react";
+import { Button, Container, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../../../Firebase.init";
-import Product from "../../ProductsManagement/Product/Product";
+
 import Loading from "../../Shared/Loading/Loading";
 import UseProducts from "../../../hooks/useProducts";
 

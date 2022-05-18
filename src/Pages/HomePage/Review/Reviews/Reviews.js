@@ -1,7 +1,7 @@
 import { faMessage } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
-import { Alert, Button, Container, Form, Modal, Row } from "react-bootstrap";
+import { Alert, Button, Container, Form, Modal } from "react-bootstrap";
 import {
   useAuthState,
   useSendEmailVerification,
@@ -123,7 +123,7 @@ const Reviews = () => {
       </Container>
       <Container className="mt-5 p-3 rounded-3 shadow-none bg-light">
         <Toaster />
-        <h1 className="text-center mb-5">Please Drop Your Review </h1>
+        <h1 className="text-center mb-5">Please Drop Your Feedback </h1>
         <Form onSubmit={handleComment}>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
             <Form.Control

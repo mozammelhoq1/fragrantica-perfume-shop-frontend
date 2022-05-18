@@ -22,13 +22,7 @@ const Blogs = () => {
           Nodejs is used in server-side development.
         </li>
       </ul>
-      <h3>When should you use nodejs and when should you use mongodb</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
-        vitae esse fugiat labore blanditiis! Fugit qui mollitia amet possimus.
-        Optio blanditiis odio quia aut cupiditate sit? Ratione veniam
-        consequuntur sequi!
-      </p>
+
       <h3>Differences between sql and nosql databases.</h3>
       <ul>
         <li>
@@ -48,9 +42,20 @@ const Blogs = () => {
       </ul>
       <h3>What is the purpose of jwt and how does it work</h3>
       <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum iste
-        molestiae earum quia unde aliquam. Enim maxime id vero! Exercitationem
-        commodi nisi assumenda veniam vitae facere quos amet fugit repellat.
+        JWT is the Jason Web Token. It sends securely transmitted information
+        from the client side to the server side so that we can catch anyone who
+        wants to lose access to a user. So the user who is not authorized will
+        not be given access to the data.
+      </p>
+      <p>
+        When the client logs in with username and password, the server creates a
+        token for the client, then the token is sent from the server to the
+        client, then the token is stored in client local storage or browser
+        cookies. Later when the client comes and requests for the token again,
+        the token is copied and sent to server side to authenticate whether the
+        client is valid or not. The server verifies whether it is authorized or
+        not before giving the JWT token to the client. The server then responds
+        to the client request and gives permission to the user
       </p>
     </Container>
   );
